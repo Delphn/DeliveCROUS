@@ -1,0 +1,7 @@
+{
+  "name": "DeliveCROUS",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
