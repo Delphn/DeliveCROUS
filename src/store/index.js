@@ -60,9 +60,13 @@ const store = createStore({
         Price: '19,20 €', 
         img: require('../../public/assets/neopolitan.jpeg')
       }
-    ]
+    ],
+    cartItems: []
   },
   getters: {
+    cartItems(state) {
+      return state.cartItems;
+    },
     dishes(state) {
       return state.dishes;
     },
