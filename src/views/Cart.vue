@@ -87,17 +87,32 @@
 
 <script>
 import { IonGrid, IonRow, IonCol, IonImg, IonItem, IonCard, IonCardTitle, IonTitle, IonButton, IonInput} from '@ionic/vue';
+import { mapGetters } from 'vuex';
 
 export default {
     name: 'Cart',
+    components: {
+      // CheckBox,
+      IonGrid,
+      IonRow,
+      IonCol,
+      IonImg,
+      IonItem,
+      IonCard,
+      IonCardTitle,
+      IonTitle,
+      IonButton,
+      IonInput
+    },
     data() {
         return {
             test: null
         }
     },
+    computed: {
+        ...mapGetters(['cartItems']),
+    },
     methods: {
-        test () {
-        }
     }
 }
 </script>
