@@ -71,7 +71,8 @@ const store = createStore({
     },
     removeDish(state, dish) {
       console.log('STORE: remove dish', dish)
-      //state.cartItems.shift()
+      // ????
+      this.removeFromCart(dish)
     },
     removeFromCart(state, id) {
       // find the dish index
@@ -103,6 +104,14 @@ const store = createStore({
     },
     nbInCart(state) {
       return state.dishes.filter(dish => dish.isChecked === true).length
+    }
+  },
+  actions: {
+    updateDish({ commit }, id) {
+      commit('updateCheckboxValue', id)
+    },
+    addCartID(state, id) {
+      state.cartItemsID.push(id)
     }
   }
 });

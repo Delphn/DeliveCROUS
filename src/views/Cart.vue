@@ -111,10 +111,15 @@ export default {
     },
     computed: {
         ...mapGetters(['cartItems']),
+        // check if dish is rendered in cart view
+        isInCart() {
+          return item => this.cartItems.includes(item)
+        }
     },
     methods: {
-        removeFromCart () {
-            // state function
+        removeFromCart (dish) {
+            console.log('Cart.removeFromCart -', dish)
+            this.$store.commit('removeDish', dish)
         }
     }
 }
