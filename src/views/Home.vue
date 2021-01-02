@@ -22,7 +22,7 @@
             </ion-card-header>
             <ion-card-content>
               <ion-row>
-                <ion-col >
+                <ion-col>
                   {{ dish.Description }}
                 </ion-col>
               </ion-row>
