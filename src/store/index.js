@@ -63,6 +63,9 @@ const store = createStore({
     ]
   },
   getters: {
+    dish: state => (id) => {
+      return state.dishes.find(dish => dish.id === id);
+    },
     dishes(state) {
       return state.dishes;
     },
