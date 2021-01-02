@@ -63,6 +63,34 @@ const store = createStore({
     ],
     cartItems: []
   },
+  mutations: {
+    addToCart(state, dish) {
+      state.cartItems.push(dish)
+
+      console.log('after adding: ', state.cartItems)
+    },
+    removeDish(state, dish) {
+      console.log('STORE: remove dish', dish)
+      //state.cartItems.shift()
+    },
+    removeFromCart(state, id) {
+      // find the dish index
+      console.log('removing id=', id.id)
+      const index = state.cartItems.findIndex(dish => dish.id === id)
+
+      // remove from the cartItems array
+      state.cartItems.splice(index, 1)
+
+      console.log('after removal: ', state.cartItems)
+    },
+    updateCheckboxValue(state, id) {
+      // toggle isChecked
+      const dish = state.dishes.find(dish => dish.id === id)
+      if (dish) dish.isChecked = !dish.isChecked
+
+      console.log(dish?.isChecked)
+    }
+  },
   getters: {
     cartItems(state) {
       return state.cartItems;

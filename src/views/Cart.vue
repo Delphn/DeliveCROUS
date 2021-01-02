@@ -113,6 +113,9 @@ export default {
         ...mapGetters(['cartItems']),
     },
     methods: {
+        removeFromCart () {
+            // state function
+        }
     }
 }
 </script>
