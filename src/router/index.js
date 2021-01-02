@@ -13,16 +13,15 @@ const routes = [
     component: Home
   },
   {
-<<<<<<< HEAD
     path: '/cart',
     name: 'Cart',
     component: Cart
-=======
+  },
+  {
     path: '/dishes/:id',
     name: 'DishDetails',
     component: () => import('../views/DishDetails.vue'),
     props: true
->>>>>>> be9d1b902548d8127ada87f63ee0c3a24a1f4b6d
   }
 ]
 
