@@ -98,6 +98,12 @@ const store = createStore({
     dishes(state) {
       return state.dishes;
     },
+    dish: state => (id) => {
+      return state.dishes.find(dish => dish.id === id);
+    },
+    nbInCart(state) {
+      return state.dishes.filter(dish => dish.isChecked === true).length
+    }
   }
 });
 
