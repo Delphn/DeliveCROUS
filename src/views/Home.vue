@@ -9,7 +9,7 @@
       <ion-row>
         <ion-col v-for="dish in dishes" :key="dish.id"  size-xs="12" size-sm="6" size-md="4">
           <ion-card style="height:100%">
-            <ion-img :src="dish.img"></ion-img>
+            <ion-img @click="$router.push({ name: 'DishDetails', params: { id: dish.id }})" :src="dish.img"></ion-img>
             <ion-card-header>
               <ion-row>
                 <ion-col no-padding size-xs="8" class="ion-text-start">
