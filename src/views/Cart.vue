@@ -2,7 +2,7 @@
   <base-layout>
     <ion-grid>
       <ion-row>
-        <ion-col v-for="(dish,index) in cartItems" :key="index" size-xs="12">
+        <ion-col v-for="dish in cartItems" :key="dish.id" size-xs="12">
           <ion-card>
             <ion-row>
               <!-- image -->
@@ -15,7 +15,6 @@
                   <ion-col>
                     <ion-card-title style="font-size: 0.8rem">
                       {{dish.Name}}
-                      index - {{index}}
                     </ion-card-title>
                   </ion-col>
                   <ion-col>
@@ -33,7 +32,7 @@
                   </ion-col>
                   <!-- checkbox -->
                   <ion-col class="ion-text-end">
-                      <!-- checkbox -->
+                    <CheckBox :dish="dish" checkboxId="cart-checkbox"/>
                   </ion-col>
                 </ion-row>
               </ion-col>
@@ -86,13 +85,15 @@
 </template>
 
 <script>
+
 import { IonGrid, IonRow, IonCol, IonImg, IonItem, IonCard, IonCardTitle, IonTitle, IonButton, IonInput} from '@ionic/vue';
+import CheckBox from '@/components/CheckBox';
 import { mapGetters } from 'vuex';
 
 export default {
     name: 'Cart',
     components: {
-      // CheckBox,
+      CheckBox,
       IonGrid,
       IonRow,
       IonCol,
@@ -105,22 +106,13 @@ export default {
       IonInput
     },
     data() {
-        return {
-            test: null
-        }
+      return {
+        itemsIDs: [],
+        items: []
+      }
     },
     computed: {
-        ...mapGetters(['cartItems']),
-        // check if dish is rendered in cart view
-        isInCart() {
-          return item => this.cartItems.includes(item)
-        }
+      ...mapGetters(['cartItems'])
     },
-    methods: {
-        removeFromCart (dish) {
-            console.log('Cart.removeFromCart -', dish)
-            this.$store.commit('removeDish', dish)
-        }
-    }
 }
 </script>

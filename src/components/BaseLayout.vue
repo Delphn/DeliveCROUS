@@ -8,6 +8,8 @@
         <ion-title class="ion-text-center" size="large" color="dark">DeliveCrous</ion-title>
         <ion-button fill="clear" id="cart-btn" router-link="/cart" icon-only slot="end">
           <ion-icon class="clear" size="large" color="dark" :icon="cart"></ion-icon> 
+          <ion-badge v-if="cartItems.length > 0" color="danger" id="cart-badge" padding="0" size="small">{{ cartItems.length }}</ion-badge>
+
         </ion-button>
       </ion-toolbar>
     </ion-header>
@@ -18,7 +20,7 @@
 </template>
 
 <script>
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonButton, IonBackButton, IonIcon } from '@ionic/vue';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonButton, IonBackButton, IonIcon, IonBadge } from '@ionic/vue';
 import { cart } from 'ionicons/icons';
 import { defineComponent } from 'vue';
 import { mapGetters } from 'vuex';
@@ -35,11 +37,12 @@ export default defineComponent({
     IonButtons,
     IonBackButton,
     IonIcon,
+    IonBadge,
     IonButton
   },
   data() {
     return {
-        cart
+      cart
     }
   },
   computed: {

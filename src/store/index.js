@@ -66,8 +66,6 @@ const store = createStore({
   mutations: {
     addToCart(state, dish) {
       state.cartItems.push(dish)
-
-      console.log('after adding: ', state.cartItems)
     },
     removeDish(state, dish) {
       console.log('STORE: remove dish', dish)
@@ -76,13 +74,9 @@ const store = createStore({
     },
     removeFromCart(state, id) {
       // find the dish index
-      console.log('removing id=', id.id)
       const index = state.cartItems.findIndex(dish => dish.id === id)
 
-      // remove from the cartItems array
       state.cartItems.splice(index, 1)
-
-      console.log('after removal: ', state.cartItems)
     },
     updateCheckboxValue(state, id) {
       // toggle isChecked
@@ -90,6 +84,9 @@ const store = createStore({
       if (dish) dish.isChecked = !dish.isChecked
 
       console.log(dish?.isChecked)
+    },
+    updateLocalStorage(state) {
+      window.localStorage.setItem('cartItems', JSON.stringify(state.cartItems))
     }
   },
   getters: {
@@ -109,9 +106,17 @@ const store = createStore({
   actions: {
     updateDish({ commit }, id) {
       commit('updateCheckboxValue', id)
+      commit("updateLocalStorage")
     },
-    addCartID(state, id) {
-      state.cartItemsID.push(id)
+    addDishToCart({ commit }, id) {
+      commit('addToCart', id)
+    },
+    removeCartID(state, id) {
+      const dish = state.cartItems.find(dish => dish.id === id);
+      const index = state.cartItems.indexOf(dish)
+      if (index != -1) {
+        state.cartItemIDs.slice(index, 1)
+      }
     }
   }
 });
