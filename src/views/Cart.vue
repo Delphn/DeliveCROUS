@@ -34,7 +34,7 @@
                   <!-- checkbox -->
                   <ion-col class="ion-text-end">
                       <!-- checkbox -->
-                      <CheckBox />
+                      <CheckBox :dish="dish" checkboxId="cart-checkbox"/>
                   </ion-col>
                 </ion-row>
               </ion-col>
@@ -107,17 +107,13 @@ export default {
     },
     data() {
         return {
-            test: null
+          itemsIDs: [],
+          items: [],
+          test: null
         }
     },
     computed: {
         ...mapGetters(['cartItems'])
-    },
-    methods: {
-        removeFromCart (dish) {
-            console.log('Cart.removeFromCart -', dish)
-            this.$store.commit('removeDish', dish)
-        }
     }
 }
 </script>

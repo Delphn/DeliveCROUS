@@ -25,6 +25,9 @@
                 <ion-col>
                   {{ dish.Description }}
                 </ion-col>
+                <ion-col size-xs="4" class="ion-text-end">
+                  <CheckBox :dish="dish" />
+                </ion-col>
               </ion-row>
             </ion-card-content>
           </ion-card>
@@ -38,6 +41,7 @@
 import { IonCard, IonCardTitle, IonCardContent, IonImg, IonGrid, IonCardHeader, IonRow, IonCol, IonTitle } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { mapGetters } from 'vuex';
+import CheckBox from '@/components/CheckBox';
 
 export default defineComponent({
   name: 'Home',
