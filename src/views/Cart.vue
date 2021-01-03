@@ -7,7 +7,7 @@
             <ion-row>
               <!-- image -->
               <ion-col>
-                <ion-img :src="dish.img" style="height:100%" ></ion-img>
+                <ion-img :src="dish.img" @click="$router.push({ name: 'DishDetails', params: { id: dish.id }})" style="height:100%" ></ion-img>
               </ion-col>
               <ion-col>
                 <!-- name-price -->
