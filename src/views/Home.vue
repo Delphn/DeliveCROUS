@@ -22,7 +22,7 @@
             </ion-card-header>
             <ion-card-content>
               <ion-row>
-                <ion-col>
+                <ion-col >
                   {{ dish.Description }}
                 </ion-col>
                 <ion-col size-xs="4" class="ion-text-end">
@@ -54,7 +54,8 @@ export default defineComponent({
     IonCardHeader,
     IonRow,
     IonCol,
-    IonTitle
+    IonTitle,
+    CheckBox
   },
   data () {
     return {
