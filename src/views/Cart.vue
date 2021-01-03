@@ -34,6 +34,7 @@
                   <!-- checkbox -->
                   <ion-col class="ion-text-end">
                       <!-- checkbox -->
+                      <CheckBox />
                   </ion-col>
                 </ion-row>
               </ion-col>
@@ -110,11 +111,7 @@ export default {
         }
     },
     computed: {
-        ...mapGetters(['cartItems']),
-        // check if dish is rendered in cart view
-        isInCart() {
-          return item => this.cartItems.includes(item)
-        }
+        ...mapGetters(['cartItems'])
     },
     methods: {
         removeFromCart (dish) {
