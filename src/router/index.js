@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import Home from '../views/Home.vue'
-import Cart from '../views/Cart.vue'
 
 const routes = [
   {
@@ -15,7 +14,12 @@ const routes = [
   {
     path: '/cart',
     name: 'Cart',
-    component: Cart
+    component: () => import('../views/Cart.vue'),
+  },
+  {
+    path: '/success',
+    name: 'Success',
+    component: () => import('../views/Success.vue')
   },
   {
     path: '/dishes/:id',
