@@ -66,27 +66,17 @@ const store = createStore({
   mutations: {
     addToCart(state, dish) {
       state.cartItems.push(dish)
-    },
-    removeDish(state, dish) {
-      console.log('STORE: remove dish', dish)
-      // ????
-      this.removeFromCart(dish)
+      window.localStorage.setItem('cartItems', JSON.stringify(state.cartItems))
     },
     removeFromCart(state, id) {
       // find the dish index
       const index = state.cartItems.findIndex(dish => dish.id === id)
-
+      // remove the dist from cart
       state.cartItems.splice(index, 1)
+      localStorage.setItem('cartItems', JSON.stringify(state.cartItems))
     },
-    updateCheckboxValue(state, id) {
-      // toggle isChecked
-      const dish = state.dishes.find(dish => dish.id === id)
-      if (dish) dish.isChecked = !dish.isChecked
-
-      console.log(dish?.isChecked)
-    },
-    updateLocalStorage(state) {
-      window.localStorage.setItem('cartItems', JSON.stringify(state.cartItems))
+    setCartItems(state, cartItems) {
+      state.cartItems = cartItems
     }
   },
   getters: {
@@ -100,25 +90,10 @@ const store = createStore({
       return state.dishes.find(dish => dish.id === id);
     },
     nbInCart(state) {
-      return state.dishes.filter(dish => dish.isChecked === true).length
+      return state.cartItems.length
     }
   },
-  actions: {
-    updateDish({ commit }, id) {
-      commit('updateCheckboxValue', id)
-      commit("updateLocalStorage")
-    },
-    addDishToCart({ commit }, id) {
-      commit('addToCart', id)
-    },
-    removeCartID(state, id) {
-      const dish = state.cartItems.find(dish => dish.id === id);
-      const index = state.cartItems.indexOf(dish)
-      if (index != -1) {
-        state.cartItemIDs.slice(index, 1)
-      }
-    }
-  }
+  actions: {}
 });
 
 export default store
