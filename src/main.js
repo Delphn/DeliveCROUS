@@ -35,11 +35,6 @@ const app = createApp(App)
 /* Register BaseLayout globally */
 app.component('base-layout', BaseLayout);
 
-const cartItems = JSON.parse(localStorage.getItem('cartItems'));
-if (cartItems.length) {
-  store.commit('setCartItems', cartItems);
-}
-
 router.isReady().then(() => {
   app.mount('#app');
 });

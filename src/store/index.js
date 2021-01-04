@@ -66,14 +66,12 @@ const store = createStore({
   mutations: {
     addToCart(state, dish) {
       state.cartItems.push(dish)
-      window.localStorage.setItem('cartItems', JSON.stringify(state.cartItems))
     },
     removeFromCart(state, id) {
       // find the dish index
       const index = state.cartItems.findIndex(dish => dish.id === id)
       // remove the dist from cart
       state.cartItems.splice(index, 1)
-      localStorage.setItem('cartItems', JSON.stringify(state.cartItems))
     },
     setCartItems(state, cartItems) {
       state.cartItems = cartItems
