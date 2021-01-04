@@ -54,31 +54,33 @@
         </ion-col>
       </ion-row>
       <!-- adress form -->
+      <form @submit.prevent="placeOrder">
       <ion-row>
         <ion-col>
           <ion-item>
-            <ion-input placeholder="Rue" v-model="road" required></ion-input>
+            <ion-input required v-model="Rue" placeholder="Rue"></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-item>
-            <ion-input placeholder="Ville" v-model="town" required></ion-input>
+            <ion-input required v-model="Ville" placeholder="Ville"></ion-input>
           </ion-item>
         </ion-col>
         <ion-col>
           <ion-item>
-            <ion-input placeholder="Code Postal" v-model="code" required></ion-input>
+            <ion-input required v-model="PostalCode" placeholder="Code Postal"></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
       <!-- button -->
       <ion-row class="ion-margin-top">
         <ion-col>
-          <ion-button  color="secondary" @click="command" >Passer Commande</ion-button>
+          <ion-button type="submit" color="secondary">Passer Commande</ion-button>
         </ion-col>
       </ion-row>
+      </form>
     </ion-grid>
 
   </base-layout>
@@ -109,15 +111,17 @@ export default {
       return {
         itemsIDs: [],
         items: [],
-        road: '',
-        town: '',
-        code: '',
+        Rue: null,
+        Ville: null,
+        PostalCode: null,
         active: false
       }
     },
     methods: {
-      command(){
-          console.log('command')
+      placeOrder() {
+        if (this.Rue && this.Ville && this.PostalCode) {
+          this.$router.push('/success')
+        }
       }
     },
     computed: {
