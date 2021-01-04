@@ -3,28 +3,22 @@
     <ion-grid>
         
         <ion-card style="box-shadow: none; margin-top:20%">
-            <ion-row>
+            <ion-row class="ion-padding-bottom">
                 <ion-img src="assets/success.png"></ion-img>
             </ion-row>
 
-            <br><br><br>
-
-            <div class="ion-text-center">
+            <div class="ion-text-center ion-padding-bottom">
                 <ion-card-title style="font-size:32px" text-wrap>
                         Commande envoyée !
                 </ion-card-title> 
             </div>
 
-            <br><br><br>
-
-            <div class="ion-text-center">
+            <div class="ion-text-center ion-padding-bottom">
                 <ion-card-title style="font-size:20px" text-wrap>
                         <p>Elle vous attendra  à la fin de <br>
                         votre cours !</p>
                 </ion-card-title>
             </div>
-
-            <br>
 
             <div class="ion-text-center">
                 <ion-text style="font-size:20px">
