@@ -9,6 +9,7 @@
         <ion-button fill="clear" id="cart-btn" router-link="/cart" icon-only slot="end">
           <ion-icon class="clear" size="large" color="dark" :icon="cart"></ion-icon> 
           <ion-badge v-if="cartItems.length > 0" color="danger" id="cart-badge" padding="0" size="small">{{ cartItems.length }}</ion-badge>
+
         </ion-button>
       </ion-toolbar>
     </ion-header>

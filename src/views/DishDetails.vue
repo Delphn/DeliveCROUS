@@ -31,7 +31,7 @@
           {{ loadedDish.Description }}
         </ion-col>
         <ion-col size-xs="4" class="ion-text-end">
-          <ion-checkbox id="DishDetailsCheckBox" color="danger"></ion-checkbox>
+          <CheckBox :dish="loadedDish" checkboxId="dish-checkbox" />
         </ion-col>
       </ion-row>
       <ion-row>
@@ -51,7 +51,8 @@
 </template>
 
 <script>
-import { IonGrid, IonRow, IonCol, IonImg, IonText, IonCheckbox } from "@ionic/vue";
+import { IonGrid, IonRow, IonCol, IonImg, IonText } from "@ionic/vue";
+import CheckBox from '@/components/CheckBox';
 
 export default {
   props: ['id'],
@@ -61,7 +62,7 @@ export default {
     IonCol,
     IonImg,
     IonText,
-    IonCheckbox
+    CheckBox
   },
   computed: {
     loadedDish() {
