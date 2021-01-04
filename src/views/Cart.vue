@@ -57,26 +57,26 @@
       <ion-row>
         <ion-col>
           <ion-item>
-            <ion-input placeholder="Rue"></ion-input>
+            <ion-input placeholder="Rue" v-model="road" required></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-item>
-            <ion-input placeholder="Ville"></ion-input>
+            <ion-input placeholder="Ville" v-model="town" required></ion-input>
           </ion-item>
         </ion-col>
         <ion-col>
           <ion-item>
-            <ion-input placeholder="Code Postal"></ion-input>
+            <ion-input placeholder="Code Postal" v-model="code" required></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
       <!-- button -->
       <ion-row class="ion-margin-top">
         <ion-col>
-          <ion-button color="secondary" router-link="/success">Passer Commande</ion-button>
+          <ion-button  color="secondary" @click="command" >Passer Commande</ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -108,7 +108,16 @@ export default {
     data() {
       return {
         itemsIDs: [],
-        items: []
+        items: [],
+        road: '',
+        town: '',
+        code: '',
+        active: false
+      }
+    },
+    methods: {
+      command(){
+          console.log('command')
       }
     },
     computed: {
