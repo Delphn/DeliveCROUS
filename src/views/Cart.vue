@@ -119,13 +119,13 @@ export default {
     },
     methods: {
       placeOrder() {
-        if (this.Rue && this.Ville && this.PostalCode) {
+        if (this.cartItems.length > 0 && this.Rue && this.Ville && this.PostalCode) {
           this.$router.push('/success')
         }
       }
     },
     computed: {
       ...mapGetters(['cartItems'])
-    },
+    }
 }
 </script>
